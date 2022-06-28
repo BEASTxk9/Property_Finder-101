@@ -301,7 +301,7 @@ const properties= [
         image: "./image/020-592x444.jpg",
         title: "Apartment Complex",
         price: '$567,000',
-        address: "7900 Northwest 27th Avenue, Miami, FL, USA",
+        address: "7900 Northwest 27th Avenue, FL, USA",
         beds: 2,
         baths: 2,
         parking: 2,
