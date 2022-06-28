@@ -324,7 +324,7 @@ for(var i = 0; i < properties.length; i++){
   container.innerHTML += `
   <div class="p-3">
         <div id="card" class="p-3">
-        <img src="${properties[i].image}" width="40%">
+        <img src="${properties[i].image}" width="40%" defer>
         <h5>${properties[i].title}</h5>
         <p>${properties[i].address}</p>
         <p><i class="fa-solid fa-bed"></i>: ${properties[i].beds} 
