@@ -3,7 +3,7 @@ const properties= [
         id: 1,
         image: "../image/008-592x444.jpg",
         title: "New Apartment",
-        price: '$125,000',
+        price: '125,000',
         address: "6701 South Dixie Highway, Miami, FL, USA",
         beds: 2,
         baths: 2,
@@ -18,7 +18,7 @@ const properties= [
         id: 2,
         image: "../image/012-592x444.jpg",
         title: "Apartment For Sale",
-        price: '$876,000',
+        price: '876,000',
         address: "6701 South Dixie Highway, Miami, FL, USA",
         beds: 3,
         baths: 2,
@@ -32,7 +32,7 @@ const properties= [
         id: 3,
         image: "../image/018-592x444.jpg",
         title: "Renovated Apartment",
-        price: '$485,000',
+        price: '485,000',
         address: "6701 South Dixie Highway, Miami, FL, USA",
         beds: 4,
         baths: 2,
@@ -46,7 +46,7 @@ const properties= [
         id: 4,
         image: "../image/020-592x444.jpg",
         title: "Apartment Complex",
-        price: '$567,000',
+        price: '567,000',
         address: "7900 Northwest 27th Avenue, FL, USA",
         beds: 2,
         baths: 2,
@@ -60,7 +60,7 @@ const properties= [
         id: 5,
         image: "../image/008-592x444.jpg",
         title: "New Apartment",
-        price: '$125,000',
+        price: '125,000',
         address: "6701 South Dixie Highway, Miami, FL, USA",
         beds: 2,
         baths: 2,
@@ -75,7 +75,7 @@ const properties= [
         id: 6,
         image: "../image/012-592x444.jpg",
         title: "Apartment For Sale",
-        price: '$876,000',
+        price: '876,000',
         address: "6701 South Dixie Highway, Miami, FL, USA",
         beds: 3,
         baths: 2,
@@ -89,7 +89,7 @@ const properties= [
         id: 7,
         image: "../image/018-592x444.jpg",
         title: "Renovated Apartment",
-        price: '$485,000',
+        price: '485,000',
         address: "6701 South Dixie Highway, FL, USA",
         beds: 4,
         baths: 2,
@@ -103,7 +103,7 @@ const properties= [
         id: 8,
         image: "../image/020-592x444.jpg",
         title: "Apartment Complex",
-        price: '$567,000',
+        price: '567,000',
         address: "7900 Northwest 27th Avenue, FL, USA",
         beds: 2,
         baths: 2,
@@ -117,7 +117,7 @@ const properties= [
         id: 9,
         image: "../image/018-592x444.jpg",
         title: "Renovated Apartment",
-        price: '$485,000',
+        price: '485,000',
         address: "6701 South Dixie Highway, Miami, FL, USA",
         beds: 4,
         baths: 2,
@@ -131,7 +131,7 @@ const properties= [
         id: 10,
         image: "../image/020-592x444.jpg",
         title: "Apartment Complex",
-        price: '$567,000',
+        price: '567,000',
         address: "7900 Northwest 27th Avenue, FL, USA",
         beds: 2,
         baths: 2,
@@ -162,8 +162,9 @@ for(var i = 0; i < localStorage.getItem("records").length; i++){
     <td>${properties[i].id}</td>
     <td class="col-1"><img src="${properties[i].image}" style="width: 100%" defer></td>
     <td>${properties[i].title}</td>
+    <td class="col-2">${properties[i].address}</td>
     <td>${properties[i].type}</td>
-    <td>${properties[i].price}</td>
+    <td>$${properties[i].price}</td>
     <td>${properties[i].area} sq ft</td>
     <td>${properties[i].name}</td>
   </tr>
@@ -189,6 +190,7 @@ function readFormData() {
     formData["id"] = document.getElementById("id").value;
     formData["image"] = document.getElementById("image").value;
     formData["title"] = document.getElementById("title").value;
+    formData["location"] = document.getElementById("location").value;
     formData["category"] = document.getElementById("category").value;
     formData["price"] = document.getElementById("price").value;
     formData["size"] = document.getElementById("size").value;
@@ -206,22 +208,26 @@ function insertNewRecord(data) {
     cell1.innerHTML = data.image;
     cell2 = newRow.insertCell(2);
     cell2.innerHTML = data.title;
-    cell3 = newRow.insertCell(3);
-    cell3.innerHTML = data.category;
-    cell4 = newRow.insertCell(4);
-    cell4.innerHTML = data.price;
-    cell5 = newRow.insertCell(5);
-    cell5.innerHTML = data.size;
-    cell6 = newRow.insertCell(6);
-    cell6.innerHTML = data.author;
-    cell7 = newRow.insertCell(7);
-    cell7.innerHTML = `<a onClick="onEdit(this)">Edit</a>
-                       <a onClick="onDelete(this)">Delete</a>`;
+    cell3 = newRow.insertCell(2);
+    cell3.innerHTML = data.location;
+    cell4 = newRow.insertCell(3);
+    cell4.innerHTML = data.category;
+    cell5 = newRow.insertCell(4);
+    cell5.innerHTML =`$`+data.price;
+    cell6 = newRow.insertCell(5);
+    cell6.innerHTML = data.size;
+    cell7 = newRow.insertCell(6);
+    cell7.innerHTML = data.author;
+    cell8 = newRow.insertCell(7);
+    cell8.innerHTML = `<a class="px-2" onClick="onEdit(this)"><i class="fa-solid fa-pen-to-square"></i></a>
+                       <a onClick="onDelete(this)"><i class="fa-solid fa-trash-can"></i></a>`;
 }
 
 function resetForm() {
     document.getElementById("id").value = "";
+    document.getElementById("image").value = "";
     document.getElementById("title").value = "";
+    document.getElementById("location").value = "";
     document.getElementById("category").value = "";
     document.getElementById("price").value = "";
     document.getElementById("size").value = "";
@@ -234,19 +240,21 @@ function onEdit(td) {
     document.getElementById("id").value = selectedRow.cells[0].innerHTML;
     document.getElementById("image").value = selectedRow.cells[1].innerHTML;
     document.getElementById("title").value = selectedRow.cells[2].innerHTML;
-    document.getElementById("category").value = selectedRow.cells[3].innerHTML;
-    document.getElementById("price").value = selectedRow.cells[4].innerHTML;
-    document.getElementById("size").value = selectedRow.cells[5].innerHTML;
-    document.getElementById("author").value = selectedRow.cells[6].innerHTML;
+    document.getElementById("location").value = selectedRow.cells[3].innerHTML;
+    document.getElementById("category").value = selectedRow.cells[4].innerHTML;
+    document.getElementById("price").value = selectedRow.cells[5].innerHTML;
+    document.getElementById("size").value = selectedRow.cells[6].innerHTML;
+    document.getElementById("author").value = selectedRow.cells[7].innerHTML;
 }
 function updateRecord(formData) {
     selectedRow.cells[0].innerHTML = formData.id;
     selectedRow.cells[1].innerHTML = formData.image;
     selectedRow.cells[2].innerHTML = formData.title;
-    selectedRow.cells[3].innerHTML = formData.category;
-    selectedRow.cells[4].innerHTML = formData.price;
-    selectedRow.cells[5].innerHTML = formData.size;
-    selectedRow.cells[6].innerHTML = formData.author;
+    selectedRow.cells[3].innerHTML = formData.location;
+    selectedRow.cells[4].innerHTML = formData.category;
+    selectedRow.cells[5].innerHTML = formData.price;
+    selectedRow.cells[6].innerHTML = formData.size;
+    selectedRow.cells[7].innerHTML = formData.author;
 }
 
 function onDelete(td) {

@@ -43,7 +43,7 @@
             </div>
 
             <div class="col-8 text-black py-2 text-end">
-              <button data-bs-toggle="modal" data-bs-target="#exampleModal">ADD data</button>
+              <button class="rounded border-1 border-light" data-bs-toggle="modal" data-bs-target="#exampleModal">Add New Properties</button>
 
               <!-- modal -->
               <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
@@ -72,6 +72,10 @@
                                 <label>TITLE</label><br>
                                 <input type="text" name="title" id="title">
                             </div>
+                            <div>
+                              <label>LOCATION</label><br>
+                              <input type="text" name="location" id="location">
+                          </div>
                             <div>
                                 <label>Category</label><br>
                                 <select class="w-50 text-black" name="category" id="category">
@@ -117,26 +121,27 @@
         
         <div class="row justify-content-center">
 
-        <div id="side_nav" class="col-2 bg-white text-start px-3">
+        <div id="side_nav" class="col-2 bg-white text-start px-3 py-3">
 
-            <a href="#">My Dashboard</a><br>
-            <a href="#">Settings</a><br>
-            <a href="../index.html">Home Page</a><br>
-            <a href="#">Orders</a><br>
-            <a href="#">Blog</a><br>
-            <a href="#">Support</a><br>
-            <a href="#">performance</a>
+            <a class="py-5" href="#">My Dashboard</a><br>
+            <a class="py-5" href="#">Settings</a><br>
+            <a class="py-5" href="../index.html">Home Page</a><br>
+            <a class="py-5" href="#">Orders</a><br>
+            <a class="py-5" href="#">Blog</a><br>
+            <a class="py-5" href="#">Support</a><br>
+            <a class="py-5" href="#">performance</a>
 
         </div>
 
         <div id="feed" class="col-10 bg-white text-black">
  
-              <table class="table" class="list" id="employeeList">
+              <table class="table text-start" class="list" id="employeeList">
                 <thead>
                   <tr class="text-start">
                     <th scope="col">ID</th>
                     <th scope="col">Image</th>
                     <th scope="col">Title</th>
+                    <th scope="col">Location</th>
                     <th scope="col">Category</th>
                     <th scope="col">Price</th>
                     <th scope="col">Size</th>
@@ -165,6 +170,9 @@
         crossorigin="anonymous"
       ></script>
   
+      <!-- font awesome -->
+      <script src="https://kit.fontawesome.com/94eb56d79c.js" crossorigin="anonymous"></script>
+
       <!-- aos js -->
       <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
