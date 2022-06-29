@@ -39,10 +39,74 @@
             </div>
 
             <div class="col-2 py-2">
-                <p>Products</p>
+                <p>Properties</p>
             </div>
 
             <div class="col-8 text-black py-2 text-end">
+              <button data-bs-toggle="modal" data-bs-target="#exampleModal">ADD data</button>
+
+              <!-- modal -->
+              <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">ADD Property</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                      aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="container text-center">
+                      <div class="row justify-content-center">
+                        <div class="col-md-12">
+                          <form onsubmit="event.preventDefault();onFormSubmit();" autocomplete="off">
+                            <div>
+                                <label>ID</label><label class="validation-error hide" id="idValidationError"></label><br>
+                                <input type="text" name="id" id="id">
+                            </div>
+                            <div>
+                              <label>IMAGE</label><br>
+                              <input type="text" name="image" id="image">
+                          </div>
+                            <div>
+                                <label>TITLE</label><br>
+                                <input type="text" name="title" id="title">
+                            </div>
+                            <div>
+                                <label>Category</label><br>
+                                <select class="w-50 text-black" name="category" id="category">
+                                  <option>Apartment</option>
+                                  <option>Hotel</option>
+                                  <option>House</option>
+                                  <option>Air BNB</option>
+                                </select>
+                                <!-- <input type="text" name="category" id="category"> -->
+                            </div>
+                            <div>
+                                <label>Price</label><br>
+                                <input type="text" name="price" id="price">
+                            </div>
+                            <div>
+                                <label>SIZE</label><br>
+                                <input type="text" name="size" id="size">
+                            </div>
+                            <div>
+                                <label>AUTHOR</label><br>
+                                <input type="text" name="author" id="author">
+                            </div>
+                
+                            <div  class="form-action-buttons">
+                                <input type="submit" value="Submit">
+                            </div>
+                        </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              </div>
+
                <a class="px-1" href="#">Open the website</a>
                <a class="px-1" href="#">Need Help?</a>
                <a class="px-1" href="#">Image and select</a>
@@ -67,7 +131,7 @@
 
         <div id="feed" class="col-10 bg-white text-black">
  
-              <table class="table">
+              <table class="table" class="list" id="employeeList">
                 <thead>
                   <tr class="text-start">
                     <th scope="col">ID</th>
@@ -79,7 +143,7 @@
                     <th scope="col">Aurthor</th>
                   </tr>
                 </thead>
-                <tbody id="some">
+                <tbody id="records">
 
                 </tbody>
               </table>
@@ -109,8 +173,11 @@
           AOS.init();
         </script>
 
+        <!-- home page js -->
+      <script src="../java/main.js"></script>
+
     <!-- personal js  -->
-    <script src="./customer_JAVA/code.js"></script>
+<script src="./customer_JAVA/javaAD.js"></script>
 
 </body>
 </html>
