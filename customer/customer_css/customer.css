@@ -1,0 +1,34 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background: rgb(228, 218, 218);
+}
+
+a{
+    color: black;
+}
+
+#top{
+    border-bottom:1.5px solid grey ;
+    border-top: 1.5px solid blue;
+}
+
+#side_nav_heading{
+    border-right:1.5px solid grey ;
+
+    transition: all 0.5s ease-in-out;
+}
+
+#side_nav{
+    height: 80vh;
+    overflow-y: scroll;
+}
+
+
+#feed{
+    overflow-y: scroll;
+    height: 80vh;
+}

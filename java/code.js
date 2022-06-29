@@ -313,12 +313,11 @@ const properties= [
 ];
 
 
-var title = document.querySelectorAll('#card');
-
 const myJSON = JSON. stringify(properties);
-let container = document.getElementById("somet")
+let container = document.getElementById("somet");
 
-console.log(properties[0])
+
+console.log(properties[0]);
 
 for(var i = 0; i < properties.length; i++){
   container.innerHTML += `
@@ -343,3 +342,5 @@ for(var i = 0; i < properties.length; i++){
         </div>
       </div>`
 };
+
+
