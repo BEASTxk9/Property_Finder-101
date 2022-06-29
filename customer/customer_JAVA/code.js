@@ -153,14 +153,14 @@ console.log(properties[0]);
 for(var i = 0; i < properties.length; i++){
   container1.innerHTML += `  
  
-  <tr scope="row">
+  <tr class="text-start" scope="row">
   <td>${properties[i].id}</td>
-  <td><img src="${properties[i].image}" style="width: 30%" defer></td>
+  <td class="col-1"><img src="${properties[i].image}" style="width: 100%" defer></td>
   <td>${properties[i].title}</td>
+  <td>${properties[i].type}</td>
   <td>${properties[i].price}</td>
-  <td>${properties[i].beds}</td>
-  <td>${properties[i].baths}</td>
-  <td>${properties[i].parking}</td>
+  <td>${properties[i].area} sq ft</td>
+  <td>${properties[i].name}</td>
 </tr>
              
   `
