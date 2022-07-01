@@ -203,6 +203,7 @@ img:hover{
   #top_ft{
     justify-content: center;
     text-align: center;
+    padding-left: 2rem;
   }
 }
 
