@@ -1,11 +1,11 @@
 // localStorage.removeItem('records');
 
-let num = 1;
+
 
 let properties= JSON.parse(localStorage.getItem('records')) ? 
 JSON.parse(localStorage.getItem('records')) : [
     {
-        
+        id: 1,
         image: "../image/008-592x444.jpg",
         title: "New Apartment",
         price: '125,000',
@@ -20,7 +20,7 @@ JSON.parse(localStorage.getItem('records')) : [
         
     },
     {
-     
+        id: 2,
         image: "../image/012-592x444.jpg",
         title: "Apartment For Sale",
         price: '876,000',
@@ -34,7 +34,7 @@ JSON.parse(localStorage.getItem('records')) : [
         name: "John James"
     },
     {
-     
+        id: 3,
         image: "../image/018-592x444.jpg",
         title: "Renovated Apartment",
         price: '485,000',
@@ -48,7 +48,7 @@ JSON.parse(localStorage.getItem('records')) : [
         name: "John James"
     },
     {
-       
+        id: 4,
         image: "../image/020-592x444.jpg",
         title: "Apartment Complex",
         price: '567,000',
@@ -62,7 +62,7 @@ JSON.parse(localStorage.getItem('records')) : [
         name: "John James"
     },
     {
-     
+        id: 5,
         image: "../image/008-592x444.jpg",
         title: "New Apartment",
         price: '125,000',
@@ -77,7 +77,7 @@ JSON.parse(localStorage.getItem('records')) : [
         
     },
     {
-     
+        id: 6,
         image: "../image/012-592x444.jpg",
         title: "Apartment For Sale",
         price: '876,000',
@@ -91,7 +91,7 @@ JSON.parse(localStorage.getItem('records')) : [
         name: "John James"
     },
     {
-     
+        id: 7,
         image: "../image/018-592x444.jpg",
         title: "Renovated Apartment",
         price: '485,000',
@@ -105,7 +105,7 @@ JSON.parse(localStorage.getItem('records')) : [
         name: "John James"
     },
     {
-   
+id: 8,
         image: "../image/020-592x444.jpg",
         title: "Apartment Complex",
         price: '567,000',
@@ -119,7 +119,7 @@ JSON.parse(localStorage.getItem('records')) : [
         name: "John James"
     },
     {
-    
+  id: 9,
         image: "../image/018-592x444.jpg",
         title: "Renovated Apartment",
         price: '485,000',
@@ -133,7 +133,7 @@ JSON.parse(localStorage.getItem('records')) : [
         name: "John James"
     },
     {
-      
+    id: 10,
         image: "../image/020-592x444.jpg",
         title: "Apartment Complex",
         price: '567,000',
@@ -158,7 +158,7 @@ function readData() {
     properties.forEach( (item, index)=> {
         container1.innerHTML += `
         <tr class="text-start" scope="row">
-        <td>${item.id, num++}</td>
+        <td>${item.id}</td>
         <td class="col-1"><img src="${item.image}" style="width: 100%" defer></td>
         <td>${item.title}</td>
         <td class="col-2">${item.address}</td>
@@ -250,11 +250,6 @@ function resetForm() {
 }
 
 function onDelete(id) {
-    // if (confirm('Are you sure to delete this record ?')) {
-    //     row = td.parentElement.parentElement;
-    //     document.getElementById("employeeList").deleteRow(row.rowIndex);
-    //     resetForm();
-    // }
     if(id > -1) {
         properties.splice(id, 1);
     }
@@ -301,46 +296,3 @@ function validate() {
     }
     return isValid;
 }
-
-// let property = JSON.parse(localStorage.getItem('records'))
-// function tableData(){
-//     let tb = document.getElementById('table-body');
-//     tb.innerHTML = '';
-//     property.forEach((properties) => {
-//         tb.innerHTML += `
-//         tr class="text-start" scope="row">
-//         <td>${properties[i].id,num++}</td>
-//         <td class="col-1"><img src="${properties[i].image}" style="width: 100%" defer></td>
-//         <td>${properties[i].title}</td>
-//         <td class="col-2">${properties[i].address}</td>
-//         <td>${properties[i].type}</td>
-//         <td>$${properties[i].price}</td>
-//         <td>${properties[i].area} sq ft</td>
-//         <td>${properties[i].name}</td>
-//         <td><br><a class="px-2" onClick="onEdit(this)"><i class="fa-solid fa-pen-to-square"></i></a>
-        
-//         <a onClick="onDelete(this)"><i class="fa-solid fa-trash-can"></i></a></td>
-//       </tr>
-//         `
-//     })
-// }
-// tableData();
-// function edit(id){
-//     const newProp = prompt('What would u change')
-//     const task = properties.find((properties) => properties.id === id);
-//     task.type = newProp
-//     localStorage.setItem('records',JSON.stringify(properties));
-//     tableData();
-// };
-// function remove(id) {
-//     if (id > -1) {
-//       car.splice(id, 1);
-//       // Apply the change
-//       localStorage.setItem('car', JSON.stringify(properties));
-//     }
-//     for(i=0;i<properties.length;i++){
-//         properties[i].id = i+1;
-//     }
-//     tableData();
-// };
-
