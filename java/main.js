@@ -1,7 +1,6 @@
-// fetch data from local storage
-JSON.parse(window.localStorage.getItem("records")); 
- 
-let container1 = document.getElementById("records");
+console.log(JSON.parse(window.localStorage.getItem('records')));
+let properties = JSON.parse(window.localStorage.getItem('records'));
+let container = document.getElementById("somet");
 
 
 for(var i = 0; i < properties.length; i++){
@@ -27,3 +26,5 @@ for(var i = 0; i < properties.length; i++){
           </div>
         </div>`
   };
+
+  

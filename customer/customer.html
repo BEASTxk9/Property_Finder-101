@@ -43,7 +43,7 @@
             </div>
 
             <div class="col-8 text-black py-2 text-end">
-              <button class="rounded border-1 border-light" data-bs-toggle="modal" data-bs-target="#exampleModal">Add New Properties</button>
+              <button class="rounded border-1 border-light" data-bs-toggle="modal" data-bs-target="#exampleModal">Add/Edit Properties</button>
 
               <!-- modal -->
               <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
@@ -66,7 +66,7 @@
                             </div>
                             <div>
                               <label>IMAGE</label><br>
-                              <input type="text" name="image" id="image">
+                              <input type="file" name="image" id="image">
                           </div>
                             <div>
                                 <label>TITLE</label><br>
@@ -84,7 +84,7 @@
                                   <option>House</option>
                                   <option>Air BNB</option>
                                 </select>
-                                <!-- <input type="text" name="category" id="category"> -->
+                                <input type="text" name="category" id="category"> 
                             </div>
                             <div>
                                 <label>Price</label><br>
@@ -146,6 +146,7 @@
                     <th scope="col">Price</th>
                     <th scope="col">Size</th>
                     <th scope="col">Aurthor</th>
+                    <th scope="col">Actions</th>
                   </tr>
                 </thead>
                 <tbody id="records">
@@ -159,7 +160,38 @@
 
 
     </div>
+<!-- 
 
+    <div class="container h-100">
+      <div class="row d-flex h-100 justify-content-center align-items-center">
+          <div class="col-6 bg-black bg-opacity-75 text-light my-5 py-4 px-3 rounded rounded-5">
+
+              <h1 class="text-center mb-5">-- To Do List --</h1> -->
+              <!-- Add / Create -->
+              <!-- <div class="form-group my-2">
+                  <label for="add">Add Item: </label>
+                  <input class="form-control" type="text" placeholder="Enter your item" id="add" required>
+              </div> -->
+
+              <!-- Sort -->
+              <!-- <div class="form-group my-2 d-lg-flex justify-content-between">
+                  <button id="btnSort" class="btn btn-primary">Sort</button>
+                  <button id="btnAdd" class="btn btn-primary">Add Item</button>
+              </div> -->
+
+              <!-- View / Read -->
+              <!-- <div class="form-group my-2">
+                  <div class="form-control my-3">
+                      <ul id="list" class="my-2 mx-auto list-group">
+
+                      </ul>
+                  </div>
+                  <button id="Reset" class="btn btn-primary">Clear All</button>
+              </div>
+
+          </div>
+      </div>
+  </div> -->
 
     <!-- js links -->
 
@@ -182,7 +214,7 @@
         </script>
 
         <!-- home page js -->
-      <script src="../java/main.js"></script>
+      <!-- <script src="../java/main.js"></script> -->
 
     <!-- personal js  -->
 <script src="./customer_JAVA/javaAD.js"></script>
