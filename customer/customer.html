@@ -34,15 +34,15 @@
 
         <div id="top" class="row justify-content-center bg-white">
 
-            <div id="side_nav_heading" class="col-2 py-2 ">
+            <div id="side_nav_heading" class="col-md-2 col-sm-1 py-2 ">
                 <h2>Google</h2>
             </div>
 
-            <div class="col-2 py-2">
+            <div class="col-md-2 col-sm-12 py-2">
                 <p>Properties</p>
             </div>
 
-            <div class="col-8 text-black py-2 text-end">
+            <div class="col-lg-8 col-sm-12 text-black py-2 text-center">
               <button class="rounded border-1 border-light" data-bs-toggle="modal" data-bs-target="#exampleModal">Add/Edit Properties</button>
 
               <!-- modal -->
@@ -58,7 +58,7 @@
                   <div class="modal-body">
                     <div class="container text-center">
                       <div class="row justify-content-center">
-                        <div class="col-md-12">
+                        <div class="col-md-12 col-sm-12">
                           <form onsubmit="event.preventDefault();onFormSubmit();" autocomplete="off">
                             <div>
                                 <label>ID</label><label class="validation-error hide" id="idValidationError"></label><br>
@@ -121,7 +121,7 @@
         
         <div class="row justify-content-center">
 
-        <div id="side_nav" class="col-2 bg-white text-start px-3 py-3">
+        <div id="side_nav" class="col-md-2 col-sm-12 bg-white text-start px-3 py-3">
 
             <a href="#">My Dashboard</a><br>
             <a href="#">Settings</a><br>
@@ -133,7 +133,7 @@
 
         </div>
 
-        <div id="feed" class="col-10 bg-white text-black">
+        <div id="feed" class="col-md-10 col-sm-8 d-flex flex-wrap bg-white text-black">
  
               <table class="table text-start" class="list" id="employeeList">
                 <thead>
@@ -160,38 +160,7 @@
 
 
     </div>
-<!-- 
 
-    <div class="container h-100">
-      <div class="row d-flex h-100 justify-content-center align-items-center">
-          <div class="col-6 bg-black bg-opacity-75 text-light my-5 py-4 px-3 rounded rounded-5">
-
-              <h1 class="text-center mb-5">-- To Do List --</h1> -->
-              <!-- Add / Create -->
-              <!-- <div class="form-group my-2">
-                  <label for="add">Add Item: </label>
-                  <input class="form-control" type="text" placeholder="Enter your item" id="add" required>
-              </div> -->
-
-              <!-- Sort -->
-              <!-- <div class="form-group my-2 d-lg-flex justify-content-between">
-                  <button id="btnSort" class="btn btn-primary">Sort</button>
-                  <button id="btnAdd" class="btn btn-primary">Add Item</button>
-              </div> -->
-
-              <!-- View / Read -->
-              <!-- <div class="form-group my-2">
-                  <div class="form-control my-3">
-                      <ul id="list" class="my-2 mx-auto list-group">
-
-                      </ul>
-                  </div>
-                  <button id="Reset" class="btn btn-primary">Clear All</button>
-              </div>
-
-          </div>
-      </div>
-  </div> -->
 
     <!-- js links -->
 
