@@ -2,7 +2,8 @@
 
 let num = 1;
 
-const properties= [
+let properties= JSON.parse(localStorage.getItem('records')) ? 
+JSON.parse(localStorage.getItem('records')) : [
     {
         
         image: "../image/008-592x444.jpg",
@@ -147,34 +148,34 @@ const properties= [
     },
 ];
 
-window.localStorage.setItem('records', JSON.stringify(properties));
+// localStorage.setItem('records', JSON.stringify(properties));
 
 console.log(('records', JSON.stringify(properties)));
 
-let container1 = document.getElementById("records")
-
-console.log(properties[0]);
-
-for(var i = 0; i < localStorage.getItem("records").length; i++){
-    container1.innerHTML += `  
-   
-    <tr class="text-start" scope="row">
-    <td>${properties[i].id,num++}</td>
-    <td class="col-1"><img src="${properties[i].image}" style="width: 100%" defer></td>
-    <td>${properties[i].title}</td>
-    <td class="col-2">${properties[i].address}</td>
-    <td>${properties[i].type}</td>
-    <td>$${properties[i].price}</td>
-    <td>${properties[i].area} sq ft</td>
-    <td>${properties[i].name}</td>
-    <td><br><a class="px-2" onClick="onEdit(this)"><i class="fa-solid fa-pen-to-square"></i></a>
-    
-    <a onClick="onDelete(this)"><i class="fa-solid fa-trash-can"></i></a></td>
-  </tr>
-               
-    `
-  };
-
+function readData() {
+    let container1 = document.getElementById("records");
+    container1.innerHTML = '';
+    properties.forEach( (item, index)=> {
+        container1.innerHTML += `
+        <tr class="text-start" scope="row">
+        <td>${item.id, num++}</td>
+        <td class="col-1"><img src="${item.image}" style="width: 100%" defer></td>
+        <td>${item.title}</td>
+        <td class="col-2">${item.address}</td>
+        <td>${item.type}</td>
+        <td>$${item.price}</td>
+        <td>${item.area} sq ft</td>
+        <td>${item.name}</td>
+        <td><br><a class="px-2" onClick="onEdit(this)"><i class="fa-solid fa-pen-to-square"></i></a>
+        
+        <a onClick="onDelete(${index})"><i class="fa-solid fa-trash-can"></i></a></td>
+      </tr>
+                   
+        `
+    } );
+    // console.log(properties[0]);
+}
+readData();
   var selectedRow = null
 
 function onFormSubmit() {
@@ -233,6 +234,7 @@ function insertNewRecord(data) {
                        //  saving on local storage
     // console.log(properties);
 localStorage.setItem('records', JSON.stringify(properties));
+readData();
 }
 
 function resetForm() {
@@ -247,17 +249,22 @@ function resetForm() {
     selectedRow = null;
 }
 
-function onDelete(td) {
-    if (confirm('Are you sure to delete this record ?')) {
-        row = td.parentElement.parentElement;
-        document.getElementById("employeeList").deleteRow(row.rowIndex);
-        resetForm();
+function onDelete(id) {
+    // if (confirm('Are you sure to delete this record ?')) {
+    //     row = td.parentElement.parentElement;
+    //     document.getElementById("employeeList").deleteRow(row.rowIndex);
+    //     resetForm();
+    // }
+    if(id > -1) {
+        properties.splice(id, 1);
     }
+    localStorage.setItem('records', JSON.stringify(properties));
+    readData();
 }
 
-function onEdit(td) {
+function onEdit(id) {
     if (alert('Click on the "Add/Edit Properties" button to edit')) {
-        row = td.parentElement.parentElement;
+        row = id.parentElement.parentElement;
         document.getElementById("employeeList").updateRecord();
     }
     selectedRow = td.parentElement.parentElement;
@@ -295,4 +302,45 @@ function validate() {
     return isValid;
 }
 
+// let property = JSON.parse(localStorage.getItem('records'))
+// function tableData(){
+//     let tb = document.getElementById('table-body');
+//     tb.innerHTML = '';
+//     property.forEach((properties) => {
+//         tb.innerHTML += `
+//         tr class="text-start" scope="row">
+//         <td>${properties[i].id,num++}</td>
+//         <td class="col-1"><img src="${properties[i].image}" style="width: 100%" defer></td>
+//         <td>${properties[i].title}</td>
+//         <td class="col-2">${properties[i].address}</td>
+//         <td>${properties[i].type}</td>
+//         <td>$${properties[i].price}</td>
+//         <td>${properties[i].area} sq ft</td>
+//         <td>${properties[i].name}</td>
+//         <td><br><a class="px-2" onClick="onEdit(this)"><i class="fa-solid fa-pen-to-square"></i></a>
+        
+//         <a onClick="onDelete(this)"><i class="fa-solid fa-trash-can"></i></a></td>
+//       </tr>
+//         `
+//     })
+// }
+// tableData();
+// function edit(id){
+//     const newProp = prompt('What would u change')
+//     const task = properties.find((properties) => properties.id === id);
+//     task.type = newProp
+//     localStorage.setItem('records',JSON.stringify(properties));
+//     tableData();
+// };
+// function remove(id) {
+//     if (id > -1) {
+//       car.splice(id, 1);
+//       // Apply the change
+//       localStorage.setItem('car', JSON.stringify(properties));
+//     }
+//     for(i=0;i<properties.length;i++){
+//         properties[i].id = i+1;
+//     }
+//     tableData();
+// };
 
